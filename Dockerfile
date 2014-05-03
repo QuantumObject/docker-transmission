@@ -1,6 +1,6 @@
 # transmission container
 # VERSION               0.1.1
-FROM angelrr7702/ubuntu-14.04-sshd
+FROM angelrr7702/docker-ubuntu-14.04-sshd
 MAINTAINER Angel Rodriguez  "angelrr7702@gmail.com"
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe" >> /etc/apt/sources.list
 ENV USER_T guest
