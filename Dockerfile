@@ -15,5 +15,5 @@ RUN chmod 755 /start.sh
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 9091 22
-VOLUME ["/var/log/supervisor","home/$USER_T/dl/torrent"]
+VOLUME ["/var/log/supervisor","/home"]
 CMD ["/bin/bash", "-e", "/start.sh"]
