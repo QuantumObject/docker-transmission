@@ -1,5 +1,12 @@
 #!/bin/bash
 
+set -e
+
+if [ -f /configured ]; then
+  exec /usr/bin/supervisord
+fi
+
+
 PASSWD_T=${PASSWD_T:-}
 USER_T=${USER_T:-}
 adduser --disabled-password --gecos "" $USER_T
@@ -13,4 +20,5 @@ usermod -a -G debian-transmission $USER_T
 chgrp debian-transmission /home/$USER_T/dl/torrent
 chmod 770 /home/$USER_T/dl/torrent
 
-supervisord -n
+date > /configured
+exec /usr/bin/supervisord
