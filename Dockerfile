@@ -5,8 +5,6 @@ MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
 ENV HOME /root
-ENV USER_T admin
-ENV PASSWD_T admin
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
@@ -46,6 +44,8 @@ VOLUME /var/backups
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally 
 COPY settings.json /var/lib/transmission-daemon/info/settings.json
+COPY foreground.sh /usr/bin/foreground
+RUN chmod +x /usr/bin/foreground
 
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
