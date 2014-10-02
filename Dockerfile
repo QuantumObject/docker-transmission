@@ -28,6 +28,8 @@ RUN chmod +x /etc/my_init.d/startup.sh
 RUN mkdir /etc/service/transmissiond
 COPY transmissiond.sh /etc/service/transmissiond/run
 RUN chmod +x /etc/service/transmissiond/run
+COPY transmissionfd.sh /usr/bin/transmissionfd
+RUN chmod +x /usr/bin/transmissionfd
 
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
@@ -46,8 +48,6 @@ VOLUME /var/backups
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally 
 COPY settings.json /var/lib/transmission-daemon/info/settings.json
-COPY foreground.sh /usr/bin/foreground
-RUN chmod +x /usr/bin/foreground
 
 # to allow access from outside of the container  to the container service
 # at that ports need to allow access from firewall if need to access it outside of the server. 
