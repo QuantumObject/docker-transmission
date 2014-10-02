@@ -2,8 +2,8 @@
 
 set -e
 
-if [ -f /configured ]; then
-  exec /usr/bin/supervisord
+if [ -f /etc/configured ]; then
+  echo 'already configured'
 fi
 
 
@@ -19,6 +19,7 @@ mkdir -p home/$USER_T/dl/torrent
 usermod -a -G debian-transmission $USER_T
 chgrp debian-transmission /home/$USER_T/dl/torrent
 chmod 770 /home/$USER_T/dl/torrent
+#needed to fix problem with ubuntu ... and cron 
+update-locale
+date > /etc/configured
 
-date > /configured
-exec /usr/bin/supervisord
