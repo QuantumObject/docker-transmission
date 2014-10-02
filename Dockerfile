@@ -53,8 +53,5 @@ COPY settings.json /var/lib/transmission-daemon/info/settings.json
 # at that ports need to allow access from firewall if need to access it outside of the server. 
 EXPOSE 9091
 
-#creatian of volume 
-VOLUME 
-
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
