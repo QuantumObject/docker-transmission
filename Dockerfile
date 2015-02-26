@@ -1,5 +1,5 @@
 #name of container: docker-transmission
-#versison of container: 0.5.1
+#versison of container: 0.5.2
 FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
