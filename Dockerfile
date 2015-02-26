@@ -4,13 +4,12 @@ FROM quantumobject/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
-ENV HOME /root
 ENV USER_T guest
 ENV PASSWD_T guest
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-backports main restricted universe" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu utopic-backports main restricted universe" >> /etc/apt/sources.list
 RUN add-apt-repository ppa:transmissionbt/ppa
 RUN apt-get update && apt-get install -y -q transmission-daemon \
                     && apt-get clean \
