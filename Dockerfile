@@ -1,6 +1,6 @@
 #name of container: docker-transmission
-#versison of container: 0.5.2
-FROM quantumobject/docker-baseimage
+#versison of container: 0.5.3
+FROM angelrr7702/docker-baseimage
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
@@ -9,7 +9,7 @@ ENV PASSWD_T guest
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu utopic-backports main restricted universe" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu wily-backports main restricted universe" >> /etc/apt/sources.list
 RUN add-apt-repository ppa:transmissionbt/ppa
 RUN apt-get update && apt-get install -y -q transmission-daemon \
                     && apt-get clean \
