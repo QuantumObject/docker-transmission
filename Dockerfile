@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     && tar xvf transmission-2.84.tar.xz \
                     && rm transmission-2.84.tar.xz \
                     && cd transmission-2.84 \
-                    && ./configure -q && make -s \
+                    && ./configure -q --enable-daemon --with-inotify --enable-nls && make -s \
                     && make install \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
