@@ -14,6 +14,12 @@ RUN apt-get update && apt-get install -y -q build-essential automake \
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev \
                     libminiupnpc-dev libminiupnpc5 libappindicator-dev \
+                    && wget http://download.transmissionbt.com/files/transmission-2.84.tar.xz \
+                    && tar xvjf transmission-2.84.tar.xz \
+                    && rm transmission-2.84.tar.xz \
+                    && cd transmission-2.84 \
+                    && ./configure -q && make -s \
+                    && make install \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
