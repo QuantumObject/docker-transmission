@@ -10,7 +10,7 @@ ENV PASSWD_T guest
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-backports main restricted universe" >> /etc/apt/sources.list
-RUN apt-get update && apt-get install -y -q build-essential automake \
+RUN apt-get update && apt-get install -y -q --no-install-recommends build-essential automake \
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
