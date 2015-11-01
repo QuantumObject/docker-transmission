@@ -12,7 +12,7 @@ ENV PASSWD_T guest
 RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-backports main restricted universe" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y -q build-essential automake \
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
-                    libglib2.0-dev libevent-dev xz-utils\
+                    libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
                     && wget http://download.transmissionbt.com/files/transmission-2.84.tar.xz \
                     && tar xvf transmission-2.84.tar.xz \
