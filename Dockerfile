@@ -1,6 +1,6 @@
 #name of container: docker-transmission
 #versison of container: 0.5.3
-FROM quantumobject/docker-baseimage
+FROM quantumobject/docker-baseimage:15.10
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
@@ -10,8 +10,10 @@ ENV PASSWD_T guest
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
 RUN echo "deb http://archive.ubuntu.com/ubuntu utopic-backports main restricted universe" >> /etc/apt/sources.list
-RUN add-apt-repository ppa:transmissionbt/ppa
-RUN apt-get update && apt-get install -y -q transmission-daemon \
+RUN apt-get update && apt-get install -y -q build-essential automake \
+                    autoconf libtool pkg-config intltool libcurl4-openssl-dev \
+                    libglib2.0-dev libevent-dev \
+                    libminiupnpc-dev libminiupnpc5 libappindicator-dev \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
