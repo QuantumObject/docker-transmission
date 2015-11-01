@@ -14,8 +14,8 @@ else
   sed -i 's:\"transmission\":\"'"$USER_T"'\":g' /var/lib/transmission-daemon/info/settings.json
   mkdir -p /var/lib/transmission-daemon/info/Incomplete
   mkdir -p home/$USER_T/dl/torrent
-  usermod -a -G debian-transmission $USER_T
-  chgrp debian-transmission /home/$USER_T/dl/torrent
+  #usermod -a -G debian-transmission $USER_T
+  #chgrp debian-transmission /home/$USER_T/dl/torrent
   chmod 770 /home/$USER_T/dl/torrent
   #needed to fix problem with ubuntu ... and cron 
   update-locale
