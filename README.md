@@ -47,7 +47,7 @@ Then when you want to copy torrent from users download folder to the /var/backup
  
  you will have in your [your_directory] the files that was on the torrent directory. 
  
- if you forget to run the container with options -v [your_directory:]/var/backups you still can find the subdirectory/mount point that docker use for VOLUME /var/backups by :
+ if you forget to run the container with options -v [your_directory:]/var/backups , you still can find the subdirectory/mount point that docker use for VOLUME /var/backups by :
  
      $ docker inspect -f {{.Mounts}} container_id
  
