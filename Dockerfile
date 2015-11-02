@@ -20,6 +20,8 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     && cd transmission-2.84 \
                     && ./configure -q --enable-daemon --with-inotify --enable-nls && make -s \
                     && make install \
+                    && cd .. \
+                    && rm -R /transmission-2.84 \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
