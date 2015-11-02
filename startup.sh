@@ -4,6 +4,7 @@ set -e
 
 if [ -f /etc/configured ]; then
   echo 'already configured'
+  /usr/local/bin/transmission-daemon &
 else
   groupadd debian-transmission
   PASSWD_T=${PASSWD_T:-}
