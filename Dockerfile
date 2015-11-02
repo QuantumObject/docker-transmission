@@ -31,13 +31,6 @@ RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
 
-# to add transmissiond deamon to runit
-RUN mkdir /etc/service/transmissiond
-COPY transmissiond.sh /etc/service/transmissiond/run
-RUN chmod +x /etc/service/transmissiond/run
-COPY transmissionfd.sh /usr/bin/transmissionfd
-RUN chmod +x /usr/bin/transmissionfd
-
 #pre-config scritp for different service that need to be run when container image is create 
 #maybe include additional software that need to be installed ... with some service running ... like example mysqld
 COPY pre-conf.sh /sbin/pre-conf
