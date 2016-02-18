@@ -57,11 +57,11 @@ About Transmission: [www.transmissionbt.com][1]
 
 To help improve this container [docker-transmission][5]
 
-For additional info about us and our projects check our site [www.quantumobject.com][6]
+For additional info about us and our projects check our site [www.quantumobject.org][6]
 
 [1]:http://www.transmissionbt.com/
 [2]:https://www.docker.com
 [3]:https://trac.transmissionbt.com/wiki/Changes#version-2.84
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-transmission
-[6]:http://www.quantumobject.com/
+[6]:http://www.quantumobject.org/
