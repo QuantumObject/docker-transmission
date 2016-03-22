@@ -4,7 +4,6 @@ set -e
 
 if [ -f /etc/configured ]; then
   echo 'already configured'
-  /usr/local/bin/transmission-daemon  -g /var/lib/transmission-daemon/info/ &
 else
   groupadd debian-transmission
   PASSWD_T=${PASSWD_T:-}
@@ -21,6 +20,5 @@ else
   chmod 770 /home/$USER_T/dl/torrent
   #needed to fix problem with ubuntu ... and cron 
   update-locale
-  /usr/local/bin/transmission-daemon  -g /var/lib/transmission-daemon/info/ &
   date > /etc/configured
 fi
