@@ -39,8 +39,7 @@ RUN mkdir /etc/service/transmission/log
 COPY transmission.sh /etc/service/transmission/run
 COPY transmission-log.sh /etc/service/transmission/log/run
 RUN chmod +x /etc/service/transmission/run /etc/service/transmission/log/run \
-    && cp /var/log/cron/config /var/log/transmission/ \
-    && chown -R debian-transmission /var/log/transmission
+    && cp /var/log/cron/config /var/log/transmission/ 
 
 
 ##scritp that can be running from the outside using docker-bash tool ...
