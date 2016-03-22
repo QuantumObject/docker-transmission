@@ -18,7 +18,7 @@ else
   usermod -a -G debian-transmission $USER_T
   chgrp debian-transmission /home/$USER_T/dl/torrent
   chmod 770 /home/$USER_T/dl/torrent
-  chown -R debian-transmission /var/log/transmission
+  chown -R :debian-transmission /var/log/transmission
   #needed to fix problem with ubuntu ... and cron 
   update-locale
   date > /etc/configured
