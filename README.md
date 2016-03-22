@@ -1,6 +1,6 @@
 # docker-transmission
 
-Docker container for [Transmission 2.84][3]
+Docker container for [Transmission 2.92][3]
 
 "Transmission a Fast, Easy and Free BitTorrent Client"
 
@@ -61,7 +61,7 @@ For additional info about us and our projects check our site [www.quantumobject.
 
 [1]:http://www.transmissionbt.com/
 [2]:https://www.docker.com
-[3]:https://trac.transmissionbt.com/wiki/Changes#version-2.84
+[3]:https://trac.transmissionbt.com/wiki/Changes#version-2.92
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-transmission
 [6]:http://www.quantumobject.org/
