@@ -1,3 +1,3 @@
 #!/bin/sh
 
-exec chpst -u debian-transmission svlogd -tt /var/log/transmission/
+exec chpst -u nobody svlogd -tt /var/log/transmission/
