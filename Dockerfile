@@ -1,5 +1,5 @@
 #name of container: docker-transmission
-#versison of container: 0.5.3
+#versison of container: 0.5.4
 FROM quantumobject/docker-baseimage:15.10
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
@@ -9,19 +9,19 @@ ENV PASSWD_T guest
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc)-backports main restricted universe" >> /etc/apt/sources.list
+RUN echo "deb http://archive.ubuntu.com/ubuntu `cat /etc/container_environment/DISTRIB_CODENAME`-backports main restricted universe" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y -q --no-install-recommends build-essential automake \
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
-                    && wget http://download.transmissionbt.com/files/transmission-2.84.tar.xz \
-                    && tar xvf transmission-2.84.tar.xz \
-                    && rm transmission-2.84.tar.xz \
-                    && cd transmission-2.84 \
+                    && wget http://download.transmissionbt.com/files/transmission-2.92.tar.xz \
+                    && tar xvf transmission-2.92.tar.xz \
+                    && rm transmission-2.92.tar.xz \
+                    && cd transmission-2.92 \
                     && ./configure -q --enable-daemon --with-inotify --enable-nls && make -s \
                     && make install \
                     && cd .. \
-                    && rm -R /transmission-2.84 \
+                    && rm -R /transmission-2.92 \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
@@ -32,6 +32,15 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
 RUN mkdir -p /etc/my_init.d
 COPY startup.sh /etc/my_init.d/startup.sh
 RUN chmod +x /etc/my_init.d/startup.sh
+
+##Adding Deamons to containers
+RUN mkdir /etc/service/transmission /var/log/transmission ; sync
+RUN mkdir /etc/service/transmission/log
+COPY transmission.sh /etc/service/transmission/run
+COPY transmission-log.sh /etc/service/transmission/log/run
+RUN chmod +x /etc/service/transmission/run /etc/service/transmission/log/run \
+    && cp /var/log/cron/config /var/log/transmission/ 
+
 
 ##scritp that can be running from the outside using docker-bash tool ...
 ## for example to create backup for database with convitation of VOLUME   dockers-bash container_ID backup_mysql
