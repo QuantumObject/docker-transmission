@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
-                    && wget http://download.transmissionbt.com/files/transmission-2.92.tar.xz \
+                    && wget https://github.com/transmission/transmission-releases/raw/master/transmission-2.92.tar.xz \
                     && tar xvf transmission-2.92.tar.xz \
                     && rm transmission-2.92.tar.xz \
                     && cd transmission-2.92 \
@@ -35,10 +35,8 @@ RUN chmod +x /etc/my_init.d/startup.sh
 
 ##Adding Deamons to containers
 RUN mkdir /etc/service/transmission /var/log/transmission ; sync
-RUN mkdir /etc/service/transmission/log
 COPY transmission.sh /etc/service/transmission/run
-COPY transmission-log.sh /etc/service/transmission/log/run
-RUN chmod +x /etc/service/transmission/run /etc/service/transmission/log/run \
+RUN chmod +x /etc/service/transmission/run \
     && cp /var/log/cron/config /var/log/transmission/ 
 
 
