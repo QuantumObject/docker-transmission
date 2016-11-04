@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
-                    && wget http://download.transmissionbt.com/files/transmission-2.92.tar.xz \
+                    && wget https://github.com/transmission/transmission-releases/raw/master/transmission-2.92.tar.xz \
                     && tar xvf transmission-2.92.tar.xz \
                     && rm transmission-2.92.tar.xz \
                     && cd transmission-2.92 \
