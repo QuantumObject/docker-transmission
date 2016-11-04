@@ -35,10 +35,8 @@ RUN chmod +x /etc/my_init.d/startup.sh
 
 ##Adding Deamons to containers
 RUN mkdir /etc/service/transmission /var/log/transmission ; sync
-RUN mkdir /etc/service/transmission/log
 COPY transmission.sh /etc/service/transmission/run
-COPY transmission-log.sh /etc/service/transmission/log/run
-RUN chmod +x /etc/service/transmission/run /etc/service/transmission/log/run \
+RUN chmod +x /etc/service/transmission/run \
     && cp /var/log/cron/config /var/log/transmission/ 
 
 
