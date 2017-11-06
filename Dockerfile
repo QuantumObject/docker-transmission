@@ -1,6 +1,6 @@
 #name of container: docker-transmission
-#versison of container: 0.5.4
-FROM quantumobject/docker-baseimage:15.10
+#versison of container: 0.5.6
+FROM quantumobject/docker-baseimage:16.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
@@ -9,7 +9,6 @@ ENV PASSWD_T guest
 
 #add repository and update the container
 #Installation of nesesary package/software for this containers...
-RUN echo "deb http://archive.ubuntu.com/ubuntu `cat /etc/container_environment/DISTRIB_CODENAME`-backports main restricted universe" >> /etc/apt/sources.list
 RUN apt-get update && apt-get install -y -q --no-install-recommends build-essential automake \
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
