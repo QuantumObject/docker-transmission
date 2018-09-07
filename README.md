@@ -1,6 +1,6 @@
 # docker-transmission
 
-Docker container for [Transmission 2.92][3]
+Docker container for [Transmission 2.94][3]
 
 "Transmission a Fast, Easy and Free BitTorrent Client"
 
