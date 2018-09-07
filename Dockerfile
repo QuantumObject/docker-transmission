@@ -1,6 +1,6 @@
 #name of container: docker-transmission
-#versison of container: 0.5.6
-FROM quantumobject/docker-baseimage:16.04
+#versison of container: 0.5.7
+FROM quantumobject/docker-baseimage:18.04
 MAINTAINER Angel Rodriguez  "angel@quantumobject.com"
 
 # Set correct environment variables.
@@ -13,14 +13,14 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     autoconf libtool pkg-config intltool libcurl4-openssl-dev \
                     libglib2.0-dev libevent-dev xz-utils libssl-dev \
                     libminiupnpc-dev libminiupnpc10 libappindicator-dev \
-                    && wget https://github.com/transmission/transmission-releases/raw/master/transmission-2.92.tar.xz \
-                    && tar xvf transmission-2.92.tar.xz \
-                    && rm transmission-2.92.tar.xz \
-                    && cd transmission-2.92 \
+                    && wget https://github.com/transmission/transmission/archive/2.94.tar.gz \
+                    && tar xvf 2.94.tar.gz \
+                    && rm 2.94.tar.gz \
+                    && cd transmission-2.94 \
                     && ./configure -q --enable-daemon --with-inotify --enable-nls && make -s \
                     && make install \
                     && cd .. \
-                    && rm -R /transmission-2.92 \
+                    && rm -R /transmission-2.94 \
                     && apt-get clean \
                     && rm -rf /tmp/* /var/tmp/*  \
                     && rm -rf /var/lib/apt/lists/*
