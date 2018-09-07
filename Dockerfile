@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install -y -q --no-install-recommends build-essent
                     && tar xvf 2.94.tar.gz \
                     && rm 2.94.tar.gz \
                     && cd transmission-2.94 \
-                    && ./configure -q --enable-daemon --with-inotify --enable-nls && make -s \
+                    && ./autogen.sh -q --enable-daemon --with-inotify --enable-nls && make -s \
                     && make install \
                     && cd .. \
                     && rm -R /transmission-2.94 \
