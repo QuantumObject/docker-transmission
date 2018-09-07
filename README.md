@@ -8,7 +8,7 @@ Docker container for [Transmission 2.92][3]
 
   - [Docker][2]
 
-To install docker in Ubuntu 16.04 use the commands:
+To install docker in Ubuntu 18.04 use the commands:
 
     $ sudo apt-get update
     $ sudo wget -qO- https://get.docker.com/ | sh
@@ -61,7 +61,7 @@ For additional info about us and our projects check our site [www.quantumobject.
 
 [1]:http://www.transmissionbt.com/
 [2]:https://www.docker.com
-[3]:https://trac.transmissionbt.com/wiki/Changes#version-2.92
+[3]:https://github.com/transmission/transmission/releases/tag/2.94
 [4]:http://docs.docker.com
 [5]:https://github.com/QuantumObject/docker-transmission
 [6]:http://www.quantumobject.org/
