@@ -19,7 +19,7 @@ To install docker in Ubuntu 18.04 use the commands:
 
 To run container use the command below:
 
-    docker run -d -p 9091:9091 --name transmissionquantum object/docker-transmission
+    docker run -d -p 9091:9091 --name transmission quantumobject/docker-transmission
 
 This will create docker-transmission container with login/password guest/guest.
 
