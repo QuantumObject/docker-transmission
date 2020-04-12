@@ -39,12 +39,6 @@ RUN chmod +x /etc/service/transmission/run \
     && cp /var/log/cron/config /var/log/transmission/ 
 
 
-##scritp that can be running from the outside using docker-bash tool ...
-## for example to create backup for database with convitation of VOLUME   dockers-bash container_ID backup_mysql
-COPY backup.sh /sbin/backup
-RUN chmod +x /sbin/backup
-VOLUME /var/backups
-
 #add files and script that need to be use for this container
 #include conf file relate to service/daemon 
 #additionsl tools to be use internally 
