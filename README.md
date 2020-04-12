@@ -27,18 +27,18 @@ If you want different user and password them :
 
     docker run -d -e USER_T=user_name -e PASSWD_T=password -p 9091:9091 --name transmission quantumobject/docker-transmission
 
-## Accessing the Transmission applications:
-
-After that check with your browser at addresses:
-
-  - **http://host_ip:9091/**
-
 ## To access data from the server:
 
  You can access the downloaded torrent from the server that running container using the Volume (-v) for home folder for client create for this container:
   
      docker run -d -p 9091:9091 -e USER_T=user_name -e PASSWD_T=password -v /your_folder/for_torrent:/home/'user_name'/dl/torrent --name transmission quantumobject/docker-transmission
       
+## Accessing the Transmission applications:
+
+After that check with your browser at addresses:
+
+  - **http://host_ip:9091/**
+
 ## More Info
 
 About Transmission: [www.transmissionbt.com][1]
