@@ -37,7 +37,7 @@ After that check with your browser at addresses:
 
  You can access the downloaded torrent from the server that running container using the Volume (-v) for home folder for client create for this container:
   
-     docker run -d -p 9091:9091 -e PASSWD_T=password -v /your_folder/for_torrent:/home/'user_name'/dl/torrent --name transmission quantumobject/docker-transmission
+     docker run -d -p 9091:9091 -e USER_T=user_name -e PASSWD_T=password -v /your_folder/for_torrent:/home/'user_name'/dl/torrent --name transmission quantumobject/docker-transmission
       
 ## More Info
 
