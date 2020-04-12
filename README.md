@@ -10,8 +10,8 @@ Docker container for [Transmission 2.94][3]
 
 To install docker in Ubuntu 18.04 use the commands:
 
-    $ sudo apt-get update
-    $ sudo wget -qO- https://get.docker.com/ | sh
+    sudo apt-get update
+    sudo wget -qO- https://get.docker.com/ | sh
 
  To install docker in other operating systems check [docker online documentation][4]
 
@@ -19,38 +19,26 @@ To install docker in Ubuntu 18.04 use the commands:
 
 To run container use the command below:
 
-    $ docker run -d -p 9091 quantumobject/docker-transmission
+    docker run -d -p 9091:9091 --name transmissionquantum object/docker-transmission
 
 This will create docker-transmission container with login/password guest/guest.
 
 If you want different user and password them : 
 
-    $ docker run -d -p 9091 -e USER_T=user_name -e PASSWD_T=password quantumobject/docker-transmission
+    docker run -d -p 9091 -e USER_T=user_name -e PASSWD_T=password -p 9091:9091 --name transmission quantumobject/docker-transmission
 
 ## Accessing the Transmission applications:
 
-After that check with your browser at addresses plus the port assigined by docker:
+After that check with your browser at addresses:
 
-  - **http://host_ip:port/**
+  - **http://host_ip:9091/**
 
 ## To access data from the server:
 
- You can access the downloaded torrent from the server that running container using the Volume (-v) and the container command /sbin/backup .
- 
- When running the container need to used -v options :
- 
-     $ docker run -d -p 9091 -e PASSWD_T=password -v [your_directory:]/var/backups quantumobject/docker-transmission
-     
-Then when you want to copy torrent from users download folder to the /var/backups need to run container command backup:
-
-     $ docker exec -it container_id /sbin/backup
- 
- you will have in your [your_directory] the files that was on the torrent directory. 
- 
- if you forget to run the container with options -v [your_directory:]/var/backups , you still can find the subdirectory/mount point that docker use for VOLUME /var/backups by :
- 
-     $ docker inspect -f {{.Mounts}} container_id
- 
+ You can access the downloaded torrent from the server that running container using the Volume (-v) for home folder for client create for this container:
+  
+     docker run -d -p 9091:9091 -e PASSWD_T=password -v /your_folder/for_torrent:/home/'usr_name'/dl/torrent --name transmission quantumobject/docker-transmission
+      
 ## More Info
 
 About Transmission: [www.transmissionbt.com][1]
