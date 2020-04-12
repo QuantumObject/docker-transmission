@@ -16,6 +16,7 @@ else
   mkdir -p /var/lib/transmission-daemon/info/Incomplete
   mkdir -p home/$USER_T/dl/torrent
   usermod -a -G debian-transmission $USER_T
+  chown -R $USER_T /home/$USER_T
   chgrp debian-transmission /home/$USER_T/dl/torrent
   chmod 770 /home/$USER_T/dl/torrent
   chown -R nobody:debian-transmission /var/log/transmission
