@@ -25,7 +25,7 @@ This will create docker-transmission container with login/password guest/guest.
 
 If you want different user and password them : 
 
-    docker run -d -p 9091 -e USER_T=user_name -e PASSWD_T=password -p 9091:9091 --name transmission quantumobject/docker-transmission
+    docker run -d -e USER_T=user_name -e PASSWD_T=password -p 9091:9091 --name transmission quantumobject/docker-transmission
 
 ## Accessing the Transmission applications:
 
